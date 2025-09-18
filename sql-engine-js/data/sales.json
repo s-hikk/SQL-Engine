@@ -1,0 +1,6 @@
+[
+  {"id":101, "customer_id":1, "product":"Widget", "amount":250, "date":"2025-07-01"},
+  {"id":102, "customer_id":2, "product":"Gizmo",  "amount":125, "date":"2025-07-02"},
+  {"id":103, "customer_id":1, "product":"Widget", "amount":300, "date":"2025-07-03"},
+  {"id":104, "customer_id":3, "product":"Gadget", "amount":75,  "date":"2025-07-04"}
+]
