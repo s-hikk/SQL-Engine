@@ -35,6 +35,24 @@ function executeSelect(query, DB) {
   rows = rows.map(r => projectRow(r, query.columns));
   if (query.limit) rows = rows.slice(0, query.limit);
   return rows;
+
+}
+function innerJoin(leftRows, rightRows, leftKey, rightKey) {
+  const map = new Map();
+  for (const r of rightRows) {
+    const key = r[rightKey];
+    if (!map.has(key)) map.set(key, []);
+    map.get(key).push(r);
+  }
+  const out = [];
+  for (const l of leftRows) {
+    const k = l[leftKey];
+    const matches = map.get(k);
+    if (matches) {
+      for (const m of matches) out.push(Object.assign({}, l, m));
+    }
+  }
+  return out;
 }
 
 module.exports = { executeSelect, getVal };
